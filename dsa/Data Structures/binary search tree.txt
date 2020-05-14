@@ -1,0 +1,46 @@
+class node:
+    def __init__(self,data):
+        self.right=None
+        self.left=None
+        self.data=data
+    def insert(self,data):
+        if self.data:
+            if data<self.data:
+                if self.left is None:
+                    self.left=node(data)
+                else:
+                    self.left.insert(data)
+            elif data>self.data:
+                if self.right is None:
+                    self.right=node(data)
+                else:
+                    self.right.insert(data)
+        else:
+            self.data=data
+
+    def val(self,key):
+        if key<self.data:
+            if self.left is None:
+                print(key+ " key value not found")
+            return self.left.val(key)
+        elif key>self.data:
+            if self.right is None:
+                pritn(key+ " key value is not found")
+            return self.right.val(key)
+        else:
+            print(str(self.data)+ "is not found")
+
+    def printtree(self):
+        if self.left:
+            self.left.printtree()
+        print(self.data)
+        if self.right:
+            self.right.printtree()
+
+
+root = Node(12)
+root.insert(6)
+root.insert(14)
+root.insert(3)
+print(root.val(7))
+print(root.val(14))
