@@ -1,0 +1,9 @@
+def selection_Sort(arr):
+    temp=[]
+    for i in range(len(arr)-1):
+        b=min(arr)
+        temp.append(b)
+        arr.remove(b)
+    arr=temp
+    del temp #Just to save memory
+    return arr
